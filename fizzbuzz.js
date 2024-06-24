@@ -1,32 +1,37 @@
 // mod function
-function mod(i,k){
-    return i%k === 0
+function mod(i, k) {
+    return i % k === 0
 }
 
 // This is our main function
 function fizzbuzz() {
-    for(var i = 0; i < 100; i++){
+    for (var i = 0; i < 100; i++) {
+        if (mod(i, 11)) {
+            console.log("Bong")
+            continue
+        }
+
         var words = []
 
-    if(mod(i,3)){
-        words.push("Fizz")
-    }
-    
-    if(mod(i,5)){
-        words.push("Buzz")
-    }
-    
-    if(mod(i,7)){
-        words.push("Bang")
-    }
+        if (mod(i, 3)) {
+            words.push("Fizz")
+        }
 
-    if (words.length === 0){
-        console.log(i)
+        if (mod(i, 5)) {
+            words.push("Buzz")
+        }
+
+        if (mod(i, 7)) {
+            words.push("Bang")
+        }
+
+        if (words.length === 0) {
+            console.log(i)
+        }
+        else {
+            console.log(words.join(''))
+        }
     }
-    else{
-        console.log(words.join(''))
-    }
-   }
 
 }
 
