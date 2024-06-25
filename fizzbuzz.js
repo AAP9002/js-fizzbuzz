@@ -3,6 +3,16 @@ function mod(i, k) {
     return i % k === 0
 }
 
+function output_result(i, words){
+    if(mod(i, 17)){
+        words = words.reverse()
+        console.log(words.join(''))
+    }
+    else{
+        console.log(words.join(''))
+    }
+}
+
 function check_special_case(i){
     var words = []
 
@@ -11,7 +21,7 @@ function check_special_case(i){
             words.push("Fezz")
         }
         words.push("Bong")
-        console.log(words.join(''))
+        output_result(i, words)
         return true
     }
     return false
@@ -19,7 +29,7 @@ function check_special_case(i){
 
 // This is our main function
 function fizzbuzz() {
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 23206; i++) {
         var words = []
 
         if (check_special_case(i)) {
@@ -46,7 +56,7 @@ function fizzbuzz() {
             console.log(i)
         }
         else {
-            console.log(words.join(''))
+            output_result(i, words)
         }
     }
 
