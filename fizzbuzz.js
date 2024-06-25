@@ -3,18 +3,35 @@ function mod(i, k) {
     return i % k === 0
 }
 
+function check_special_case(i){
+    var words = []
+
+    if (mod(i, 11)) {
+        if (mod(i, 13)) {
+            words.push("Fezz")
+        }
+        words.push("Bong")
+        console.log(words.join(''))
+        return true
+    }
+    return false
+}
+
 // This is our main function
 function fizzbuzz() {
     for (var i = 0; i < 100; i++) {
-        if (mod(i, 11)) {
-            console.log("Bong")
+        var words = []
+
+        if (check_special_case(i)) {
             continue
         }
 
-        var words = []
-
         if (mod(i, 3)) {
             words.push("Fizz")
+        }
+
+        if (mod(i, 13)) {
+            words.push("Fezz")
         }
 
         if (mod(i, 5)) {
