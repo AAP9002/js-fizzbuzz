@@ -5,33 +5,36 @@ function mod(i, k) {
     return i % k === 0
 }
 
-function prompt_user(){
-    while(true){
+// prompt user for max number
+function prompt_user() {
+    while (true) {
         const max_in = prompt("Enter a max intager? ");
-        try{
+        try {
             const num = Number(max_in.trim())
-            if(!Number.isInteger(num) || num < 0){
+            if (!Number.isInteger(num) || num < 0) {
                 throw Error("Out of range!")
             }
             return num
         }
-        catch{
+        catch {
             console.log("Number must be a positive intager")
         }
     }
 }
 
-function output_result(i, words){
-    if(mod(i, 17)){
-        words = words.reverse()
+// output words in seqiential/reverse order
+function output_result(i, words) {
+    if (mod(i, 17)) {
+        words = words.toReversed()
         console.log(words.join(''))
     }
-    else{
+    else {
         console.log(words.join(''))
     }
 }
 
-function check_special_case(i){
+// special case when divisable by 11
+function check_special_case(i) {
     var words = []
 
     if (mod(i, 11)) {
@@ -46,9 +49,7 @@ function check_special_case(i){
 }
 
 // This is our main function
-function fizzbuzz() {
-    const max_number = prompt_user()
-
+function fizzbuzz(max_number) {
     for (var i = 0; i < max_number; i++) {
         var words = []
 
@@ -83,5 +84,6 @@ function fizzbuzz() {
 }
 
 // Now, we run the main function:
-fizzbuzz();
+const max_number = prompt_user()
+fizzbuzz(max_number);
 
