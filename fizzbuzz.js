@@ -1,6 +1,24 @@
+const prompt = require("prompt-sync")({ sigint: true });
+
 // mod function
 function mod(i, k) {
     return i % k === 0
+}
+
+function prompt_user(){
+    while(true){
+        const max_in = prompt("Enter a max intager? ");
+        try{
+            const num = Number(max_in.trim())
+            if(!Number.isInteger(num) || num < 0){
+                throw Error("Out of range!")
+            }
+            return num
+        }
+        catch{
+            console.log("Number must be a positive intager")
+        }
+    }
 }
 
 function output_result(i, words){
@@ -29,7 +47,9 @@ function check_special_case(i){
 
 // This is our main function
 function fizzbuzz() {
-    for (var i = 0; i < 23206; i++) {
+    const max_number = prompt_user()
+
+    for (var i = 0; i < max_number; i++) {
         var words = []
 
         if (check_special_case(i)) {
